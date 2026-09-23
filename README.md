@@ -41,51 +41,40 @@ sequenceDiagram
     C->>S: AES-256-GCM sealed confirmation message
 ```
 
-# Quickstart
+## Quickstart
 
-## 1. Install Go (Version 1.24+ Required)
-```bash
-sudo apt update
-sudo apt install golang-go
-```
+### 1. Prerequisites
 This project requires Go 1.24 or later for the `crypto/mlkem` standard library.
 Check your version:
 ```bash
 go version
-````
+```
 If you have an older version, install the latest from the official source: https://go.dev/
 
-## 2. Clone the repository
+### 2. Clone the repository
 ```bash
 git clone https://github.com/Eklund2012/pq-hybrid-kex.git
 cd pq-hybrid-kex
 ```
-## 3. Install packages
+### 3. Install packages
 ```bash
 go mod tidy
-````
-## 4. Run the program
+```
+### 4. Run the program
 ```bash
 cd cmd
 go run main.go
 ```
 The server will start listening and the client will prompt for input.
 
-## Output when running the code
-![Image](image.png)
+### Output when running the code
+![Terminal output showing handshake](assets/demo-output.png)
 
-# References
+## References
 
 - [NIST FIPS 203: Module-Lattice-Based Key-Encapsulation Mechanism Standard](https://doi.org/10.6028/NIST.FIPS.203)
-- [RFC 7748: Elliptic Curves for Security](https://www.rfc-editor.org/rfc/rfc7748)
-- [RFC 5869: HMAC-based Extract-and-Expand Key Derivation Function](https://www.rfc-editor.org/rfc/rfc5869)
-- [Go `crypto/mlkem` documentation](https://pkg.go.dev/crypto/mlkem)
-- [Go net listener / HTTP server example](https://andrew-mccall.com/blog/2025/03/go-net-listener-http-server-example/)
-- [TCP/IP server and client in Go](https://dev.to/wycliffealphus/networking-101-your-first-tcpip-server-and-client-in-go-57lk)
-- [curve25519 ScalarBaseMult](https://pkg.go.dev/golang.org/x/crypto/curve25519#ScalarBaseMult)
-- [ChatGPT: Design discussion](https://chatgpt.com/share/6932e666-48a0-8006-b343-fb3019178926)
-- [Private messages with X25519 and AES-256-GCM](https://blog.vitalvas.com/post/2025/07/24/private-messages-x25519-aes256-gcm/)
-- [Converting Slices to Arrays in Go](https://www.slingacademy.com/rticleconverting-slices-to-arrays-in-go/)
-- [End-to-End Encryption for APIs with X25519 and AES](https://blog.vitalvas.com/post/2025/07/27/e2e-encryption-api-x25519-aes/)
-- [Documentation mlkem](https://pkg.go.dev/crypto/mlkem)
-- [Documentation hkdf](https://pkg.go.dev/golang.org/x/crypto@v0.45.0/hkdf)
+- [RFC 7748: Elliptic Curves for Security (X25519)](https://www.rfc-editor.org/rfc/rfc7748)
+- [RFC 5869: HMAC-based Extract-and-Expand Key Derivation Function (HKDF)](https://www.rfc-editor.org/rfc/rfc5869)
+- [NIST SP 800-38D: Recommendation for Block Cipher Modes of Operation: Galois/Counter Mode (GCM)](https://csrc.nist.gov/pubs/sp/800/38/d/final)
+- [Go `crypto/mlkem` Documentation](https://pkg.go.dev/crypto/mlkem)
+- [Go `crypto/hkdf` Documentation](https://pkg.go.dev/crypto/hkdf)
