@@ -9,7 +9,7 @@
 
 ## The problem: harvest now, decrypt later
 
-An adversary can record encrypted traffic today and keep it until large-scale quantum computers are available. This is the **Harvest Now, Decrypt Later** threat. RSA and conventional elliptic-curve key exchange such as ECDH rely on mathematical problems that Shor’s algorithm can solve efficiently on a quantum computer. Recorded sessions whose secrets were protected only by those systems could then be decrypted.
+An adversary can record encrypted traffic today and keep it until quantum computers are available. This is the **Harvest Now, Decrypt Later** threat. RSA and conventional elliptic-curve key exchange such as ECDH rely on mathematical problems that Shor’s algorithm can solve efficiently on a quantum computer. Recorded sessions whose secrets were protected only by those systems could then be decrypted.
 
 ## Why hybrid key exchange?
 
@@ -22,7 +22,7 @@ The demo concatenates both 32-byte secrets as input key material and applies HKD
 
 ## Why AES-256?
 
-Grover’s algorithm offers a quadratic speedup against brute-force symmetric keys. As a rough security-level rule, AES-128’s 128-bit classical brute-force margin becomes about 64 bits against a quantum search, while AES-256 retains about 128 bits. This demo therefore uses AES-256-GCM: 256-bit encryption keys plus authenticated encryption. Grover’s algorithm is not a structural break of AES, and its practical impact depends on fault-tolerant quantum resources; the security-level comparison explains the conservative key-size choice.
+Grover’s algorithm is a quadratic speedup against brute-force symmetric keys. As a rough security-level rule, AES-128’s 128-bit classical brute-force margin becomes about 64 bits against a quantum search, while AES-256 has about 128 bits. This demo uses AES-256-GCM: 256-bit encryption keys plus authenticated encryption.
 
 ## Protocol flow
 
